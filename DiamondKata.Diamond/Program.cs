@@ -1,7 +1,7 @@
 ﻿using System;
 using DiamondKata.DiamondKataLib;
 
-namespace DiamondKata.DiamondKataApp
+namespace DiamondKata.Diamond
 {
     class Program
     {
@@ -17,9 +17,9 @@ namespace DiamondKata.DiamondKataApp
 
             try
             {
-                char inputChar = args[0][0];
-                DiamondBuilder diamond = new DiamondBuilder(inputChar);
-                Console.Write(diamond.Build());
+                char inputCharacter = args[0][0];
+                DiamondBuilder diamondBuilder = new DiamondBuilder(inputCharacter);
+                Console.Write(diamondBuilder.Build());
             }
             catch (ArgumentOutOfRangeException)
             {
