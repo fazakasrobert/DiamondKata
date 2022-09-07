@@ -28,7 +28,7 @@ namespace DiamondKata.DiamondKataLib.UnitTests
         [Theory]
         [InlineData('A')]
         [InlineData('B')]
-        [InlineData('C')]
+        [InlineData('Z')]
         public void CharacterMatrixToString_ValidMatrix_ReturnsPrintedMatrix(char inputCharacter)
         {
             //Arrange
