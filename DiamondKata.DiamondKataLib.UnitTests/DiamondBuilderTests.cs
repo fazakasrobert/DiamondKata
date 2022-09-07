@@ -7,13 +7,13 @@ namespace DiamondKata.DiamondKataLib.UnitTests
     public class DiamondBuilderTests
     {
         [Fact]
-        public void Constructor_InvalidCharacter_ThrowsException()
+        public void Constructor_InvalidInputCharacter_ThrowsArgumentOutOfRangeException()
         {
             //Arrange
-            DiamondBuilder builder = null;
+            DiamondBuilder diamondBuilder = null;
 
             //Act
-            Action act = () => builder = new DiamondBuilder(' ');
+            Action act = () => diamondBuilder = new DiamondBuilder(' ');
 
             //Assert
             ArgumentOutOfRangeException exception = Assert.Throws<ArgumentOutOfRangeException>(act);
@@ -24,13 +24,14 @@ namespace DiamondKata.DiamondKataLib.UnitTests
         [InlineData('B', " A \r\nB B\r\n A ")]
         [InlineData('C', "  A  \r\n B B \r\nC   C\r\n B B \r\n  A  ")]
         [InlineData('D', "   A   \r\n  B B  \r\n C   C \r\nD     D\r\n C   C \r\n  B B  \r\n   A   ")]
-        public void Build_InputCharIsValid_ReturnsCorrectDiamond(char inputCharacter, string expectedResult)
+        [InlineData('E', "    A    \r\n   B B   \r\n  C   C  \r\n D     D \r\nE       E\r\n D     D \r\n  C   C  \r\n   B B   \r\n    A    ")]
+        public void Build_InputCharacterIsValid_ReturnsCorrectDiamond(char inputCharacter, string expectedResult)
         {
             //Arrange
-            DiamondBuilder builder = new DiamondBuilder(inputCharacter);
+            DiamondBuilder diamondBuilder = new DiamondBuilder(inputCharacter);
 
             //Act
-            var diamond = builder.Build();
+            var diamond = diamondBuilder.Build();
 
             //Assert
             Assert.Equal (expectedResult, diamond);

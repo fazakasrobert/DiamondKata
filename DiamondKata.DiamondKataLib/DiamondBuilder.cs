@@ -10,7 +10,7 @@ namespace DiamondKata.DiamondKataLib
         public DiamondBuilder(char inputCharacter)
         {
             if (inputCharacter < 'A' || inputCharacter > 'Z')
-                throw new ArgumentOutOfRangeException("Invalid input character, please enter a letter between A and Z.");
+                throw new ArgumentOutOfRangeException("Invalid input character, please use a letter between A and Z.");
 
             this._inputCharacter = inputCharacter;
         }
@@ -40,25 +40,26 @@ namespace DiamondKata.DiamondKataLib
 
         private string CharacterMatrixToString(char[,] matrix)
         {
-            StringBuilder sb = new StringBuilder();
+            var stringBuilder = new StringBuilder();
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
                     var actChar = matrix[i, j];
 
-                    //array is full of defaults, checking for defaults here to avoid double loop to populate at the start
+                    //array is full of defaults, checking for defaults here to avoid double loop after initialisation
                     if (actChar == default(char))
-                        sb.Append(' ');
+                        stringBuilder.Append(' ');
                     else
-                        sb.Append(actChar);
+                        stringBuilder.Append(actChar);
                 }
 
                 //to avoid unnecessary trailing new line
-                if (i < matrix.GetLength(0) - 1) sb.AppendLine();
+                if (i < matrix.GetLength(0) - 1) 
+                    stringBuilder.AppendLine();
             }
 
-            return sb.ToString();
+            return stringBuilder.ToString();
         }
     }
 }
