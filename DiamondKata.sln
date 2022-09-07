@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiamondKata.DiamondKataLib"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiamondKata.DiamondKataLib.UnitTests", "DiamondKata.DiamondKataLib.UnitTests\DiamondKata.DiamondKataLib.UnitTests.csproj", "{3870853E-1FE7-4F5D-BB9F-900B9925C9FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiamondKata.DiamondKataApp", "DiamondKata.DiamondKataApp\DiamondKata.DiamondKataApp.csproj", "{052C5B57-A7C9-4895-AB5C-EF5F132B4E1E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiamondKata.Diamond", "DiamondKata.Diamond\DiamondKata.Diamond.csproj", "{052C5B57-A7C9-4895-AB5C-EF5F132B4E1E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
