@@ -1,0 +1,8 @@
+C:\Users\fazak\Documents\VSCode\DiamondKata\DiamondKata.DiamondKataLib\bin\Debug\netstandard2.0\DiamondKata.DiamondKataLib.deps.json
+C:\Users\fazak\Documents\VSCode\DiamondKata\DiamondKata.DiamondKataLib\bin\Debug\netstandard2.0\DiamondKata.DiamondKataLib.dll
+C:\Users\fazak\Documents\VSCode\DiamondKata\DiamondKata.DiamondKataLib\bin\Debug\netstandard2.0\DiamondKata.DiamondKataLib.pdb
+C:\Users\fazak\Documents\VSCode\DiamondKata\DiamondKata.DiamondKataLib\obj\Debug\netstandard2.0\DiamondKata.DiamondKataLib.csprojAssemblyReference.cache
+C:\Users\fazak\Documents\VSCode\DiamondKata\DiamondKata.DiamondKataLib\obj\Debug\netstandard2.0\DiamondKata.DiamondKataLib.AssemblyInfoInputs.cache
+C:\Users\fazak\Documents\VSCode\DiamondKata\DiamondKata.DiamondKataLib\obj\Debug\netstandard2.0\DiamondKata.DiamondKataLib.AssemblyInfo.cs
+C:\Users\fazak\Documents\VSCode\DiamondKata\DiamondKata.DiamondKataLib\obj\Debug\netstandard2.0\DiamondKata.DiamondKataLib.dll
+C:\Users\fazak\Documents\VSCode\DiamondKata\DiamondKata.DiamondKataLib\obj\Debug\netstandard2.0\DiamondKata.DiamondKataLib.pdb

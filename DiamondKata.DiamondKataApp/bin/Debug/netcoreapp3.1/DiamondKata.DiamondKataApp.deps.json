@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "DiamondKata.DiamondKataApp/1.0.0": {
+        "dependencies": {
+          "DiamondKata.DiamondKataLib": "1.0.0"
+        },
+        "runtime": {
+          "DiamondKata.DiamondKataApp.dll": {}
+        }
+      },
+      "DiamondKata.DiamondKataLib/1.0.0": {
+        "runtime": {
+          "DiamondKata.DiamondKataLib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DiamondKata.DiamondKataApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DiamondKata.DiamondKataLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
