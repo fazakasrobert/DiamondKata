@@ -16,7 +16,7 @@ namespace DiamondKata.DiamondKataLib.UnitTests
         public void Constructor_InvalidInputCharacter_ThrowsArgumentOutOfRangeException()
         {
             //Arrange
-            DiamondBuilder diamondBuilder = null;
+            DiamondBuilder diamondBuilder;
 
             //Act
             Action act = () => diamondBuilder = new DiamondBuilder(' ');

@@ -60,7 +60,7 @@ namespace DiamondKata.DiamondKataLib
                 {
                     var currentCharacter = matrix[i, j];
                     
-                    //array is initialised with defaults, using defaults instead of spaces in the array to avoid having to use a nested loop to initialise the array
+                    //array is initialised with defaults, I'm using defaults instead of spaces in the array to avoid having to use a nested loop to populate the array after initialisation
                     if (currentCharacter == default(char))
                         stringBuilder.Append(' ');
                     else
