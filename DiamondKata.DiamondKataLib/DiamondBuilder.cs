@@ -7,6 +7,14 @@ namespace DiamondKata.DiamondKataLib
     {
         private char _inputCharacter;
 
+        public int MatrixSize 
+        { 
+            get 
+            { 
+                return (_inputCharacter - 'A') * 2 + 1; 
+            }
+        }
+
         public DiamondBuilder(char inputCharacter)
         {
             if (inputCharacter < 'A' || inputCharacter > 'Z')
@@ -17,9 +25,16 @@ namespace DiamondKata.DiamondKataLib
 
         public string Build()
         {
-            int matrixSize = (_inputCharacter - 'A') * 2 + 1;
+            var matrixSize = this.MatrixSize;
             char[,] diamondMatrix = new char[matrixSize, matrixSize];
 
+            SetLettersInDiamondShape(diamondMatrix, matrixSize);
+
+            return CharacterMatrixToString(diamondMatrix);
+        }
+
+        public void SetLettersInDiamondShape(char[,] diamondMatrix, int matrixSize)
+        {
             for (char actChar = 'A'; actChar <= _inputCharacter; actChar++)
             {
                 //top left
@@ -34,27 +49,25 @@ namespace DiamondKata.DiamondKataLib
                 //bottom right
                 diamondMatrix[matrixSize - 1 - (actChar - 'A'), matrixSize / 2 + actChar - 'A'] = actChar;
             }
-
-            return CharacterMatrixToString(diamondMatrix);
         }
 
-        private string CharacterMatrixToString(char[,] matrix)
+        public string CharacterMatrixToString(char[,] matrix)
         {
             var stringBuilder = new StringBuilder();
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    var actChar = matrix[i, j];
-
-                    //array is full of defaults, checking for defaults here to avoid double loop after initialisation
-                    if (actChar == default(char))
+                    var currentCharacter = matrix[i, j];
+                    
+                    //array is initialised with defaults, using defaults instead of spaces in the array to avoid having to use a nested loop to initialise the array
+                    if (currentCharacter == default(char))
                         stringBuilder.Append(' ');
                     else
-                        stringBuilder.Append(actChar);
+                        stringBuilder.Append(currentCharacter);
                 }
 
-                //to avoid unnecessary trailing new line
+                //add newline only if this is not the last row
                 if (i < matrix.GetLength(0) - 1) 
                     stringBuilder.AppendLine();
             }

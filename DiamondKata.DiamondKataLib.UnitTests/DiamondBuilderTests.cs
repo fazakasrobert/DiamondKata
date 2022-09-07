@@ -1,11 +1,18 @@
 using System;
-using DiamondKata.DiamondKataLib;
 using Xunit;
 
 namespace DiamondKata.DiamondKataLib.UnitTests
 {
     public class DiamondBuilderTests
     {
+        private static Random random = new Random();
+
+        private static char GetRandomCharacter()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+            return chars[random.Next(chars.Length)];
+        }
+
         [Fact]
         public void Constructor_InvalidInputCharacter_ThrowsArgumentOutOfRangeException()
         {
@@ -20,21 +27,129 @@ namespace DiamondKata.DiamondKataLib.UnitTests
         }
 
         [Theory]
-        [InlineData('A', "A")]
-        [InlineData('B', " A \r\nB B\r\n A ")]
-        [InlineData('C', "  A  \r\n B B \r\nC   C\r\n B B \r\n  A  ")]
-        [InlineData('D', "   A   \r\n  B B  \r\n C   C \r\nD     D\r\n C   C \r\n  B B  \r\n   A   ")]
-        [InlineData('E', "    A    \r\n   B B   \r\n  C   C  \r\n D     D \r\nE       E\r\n D     D \r\n  C   C  \r\n   B B   \r\n    A    ")]
-        public void Build_InputCharacterIsValid_ReturnsCorrectDiamond(char inputCharacter, string expectedResult)
+        [InlineData('A')]
+        [InlineData('B')]
+        [InlineData('C')]
+        public void CharacterMatrixToString_ValidMatrix_ReturnsPrintedMatrix(char inputCharacter)
         {
             //Arrange
-            DiamondBuilder diamondBuilder = new DiamondBuilder(inputCharacter);
+            var diamondBuilder = new DiamondBuilder(inputCharacter);
+            var matrixSize = diamondBuilder.MatrixSize;
+            char[,] testMatrix = new char[matrixSize, matrixSize];
+            for (int i = 0; i < matrixSize; i++)
+            {
+                for  (int j= 0; j < matrixSize; j++)
+                {
+                    testMatrix[i,j] = GetRandomCharacter();
+                }
+            }
+
+            //Act
+            var matrixString = diamondBuilder.CharacterMatrixToString(testMatrix);
+
+            //Assert
+            string[] lines = matrixString.Split(new string[] {Environment.NewLine }, StringSplitOptions.None);
+            for (int i = 0; i < matrixSize; i++)
+            {
+                for  (int j= 0; j < matrixSize; j++)
+                {
+                    Assert.Equal(testMatrix[i,j], lines[i][j]);
+                }
+            }
+        }
+
+        [Fact]
+        public void Build_InputCharacterIsA_ReturnsCorrectDiamond()
+        {
+            //Arrange
+            DiamondBuilder diamondBuilder = new DiamondBuilder('A');
+            string expectedResult = "A";
 
             //Act
             var diamond = diamondBuilder.Build();
 
             //Assert
-            Assert.Equal (expectedResult, diamond);
+            Assert.Equal(expectedResult, diamond);
+        }
+
+        [Fact]
+        public void Build_InputCharacterIsB_ReturnsCorrectDiamond()
+        {
+            //Arrange
+            DiamondBuilder diamondBuilder = new DiamondBuilder('B');
+            string expectedResult = string.Empty 
+            + " A " + Environment.NewLine 
+            + "B B" + Environment.NewLine 
+            + " A ";
+
+            //Act
+            var diamond = diamondBuilder.Build();
+
+            //Assert
+            Assert.Equal(expectedResult, diamond);
+        }
+
+        [Fact]
+        public void Build_InputCharacterIsC_ReturnsCorrectDiamond()
+        {
+            //Arrange
+            DiamondBuilder diamondBuilder = new DiamondBuilder('C');
+            string expectedResult = string.Empty 
+            + "  A  " + Environment.NewLine 
+            + " B B " + Environment.NewLine 
+            + "C   C" + Environment.NewLine 
+            + " B B " + Environment.NewLine 
+            + "  A  ";
+
+            //Act
+            var diamond = diamondBuilder.Build();
+
+            //Assert
+            Assert.Equal(expectedResult, diamond);
+        }
+
+        [Fact]
+        public void Build_InputCharacterIsD_ReturnsCorrectDiamond()
+        {
+            //Arrange
+            DiamondBuilder diamondBuilder = new DiamondBuilder('D');
+            string expectedResult = string.Empty 
+            + "   A   " + Environment.NewLine 
+            + "  B B  " + Environment.NewLine 
+            + " C   C " + Environment.NewLine 
+            + "D     D" + Environment.NewLine 
+            + " C   C " + Environment.NewLine 
+            + "  B B  " + Environment.NewLine 
+            + "   A   ";
+
+            //Act
+            var diamond = diamondBuilder.Build();
+
+            //Assert
+            Assert.Equal(expectedResult, diamond);
+        }
+
+        [Fact]
+        public void Build_InputCharacterIsE_ReturnsCorrectDiamond()
+        {
+            //Arrange
+            DiamondBuilder diamondBuilder = new DiamondBuilder('E');
+            string expectedResult = string.Empty 
+            + "    A    " + Environment.NewLine 
+            + "   B B   " + Environment.NewLine 
+            + "  C   C  " + Environment.NewLine 
+            + " D     D " + Environment.NewLine 
+            + "E       E" + Environment.NewLine 
+            + " D     D " + Environment.NewLine 
+            + "  C   C  " + Environment.NewLine 
+            + "   B B   " + Environment.NewLine 
+            + "    A    ";
+
+            //Act
+            var diamond = diamondBuilder.Build();
+
+            //Assert
+            Assert.Equal(expectedResult, diamond);
         }
     }
 }
